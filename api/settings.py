@@ -32,7 +32,6 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-DATABASES['default'] = dj_database_url.config()
 
 # Application definition
 
@@ -124,6 +123,8 @@ DATABASES = {
         'HOST': config('DB_HOST'),
     }
 }
+
+DATABASES['default'] = dj_database_url.config()
 
 # DATABASES = {
 #     'default': dj_database_url.config(
