@@ -16,6 +16,11 @@ from rest_framework.permissions import IsAuthenticated
 def feed_data(request):
 	file_path = os.path.join(BASE_DIR, 'app/bank_branches.csv')
 
+	for bank in Bank.objects.all():
+		if Bank.objects.filter(ifsc=bank.ifsc).count() > 1:
+			bank.delete()
+
+
 	with open(file_path) as f:
 		reader = csv.reader(f)
 		counter = 0
@@ -27,7 +32,7 @@ def feed_data(request):
 			if counter == 1000:
 				break
 
-			Bank.objects.create(
+			temp, created = Bank.objects.get_or_create(
 				ifsc=read[0], 
 				bank_id=read[1], 
 				branch=read[2], 
