@@ -58,11 +58,11 @@ class bank_list(APIView):
 		result_page = paginator.paginate_queryset(obj, request)
 
 		if result_page is not None:
-			serializer = BankSerializer(result_page, many=True)
-			return JsonResponse(serializer.data, safe=False)
+			serializer = BankSerializer(result_page)
+			return JsonResponse(serializer.data)
 
-		serializer = BankSerializer(obj, many=True)
-		return JsonResponse(serializer.data, safe=False)
+		serializer = BankSerializer(obj)
+		return JsonResponse(serializer.data)
 
 
 class branch_list(APIView):
