@@ -50,10 +50,10 @@ def feed_data(request):
 class bank_list(APIView):
 	permission_classes = (IsAuthenticated,)
 
-	def get(self, request):
-		body_unicode = request.body.decode("utf-8")
-		body = json.loads(body_unicode)
-		ifsc = body['ifsc']
+	def get(self, request, ifsc):
+		# body_unicode = request.body.decode("utf-8")
+		# body = json.loads(body_unicode)
+		# ifsc = body['ifsc']
 		obj = Bank.objects.get(ifsc=ifsc)
 		serializer = BankSerializer(obj)
 		return JsonResponse(serializer.data)
@@ -62,11 +62,11 @@ class bank_list(APIView):
 class branch_list(APIView):
 	permission_classes = (IsAuthenticated,)
 
-	def get(self, request):
-		body_unicode = request.body.decode("utf-8")
-		body = json.loads(body_unicode)
-		bank_name = body['bank_name']
-		city = body['city']
+	def get(self, request, bank_name, city):
+		# body_unicode = request.body.decode("utf-8")
+		# body = json.loads(body_unicode)
+		# bank_name = body['bank_name']
+		# city = body['city']
 		obj = Bank.objects.filter(
 			bank_name=bank_name,
 			city=city
