@@ -89,8 +89,8 @@ class branch_list(APIView):
 	    # return paginator.get_paginated_response(serializer.data)
 
 
-	    paginator = LimitOffsetPagination()
-	    result_page = paginator.paginate_queryset(obj, request)
+		paginator = LimitOffsetPagination()
+		result_page = paginator.paginate_queryset(obj, request)
 
 
 		serializer = BankSerializer(result_page, many=True)
