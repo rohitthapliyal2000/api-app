@@ -56,8 +56,10 @@ class bank_list(APIView):
 		# body = json.loads(body_unicode)
 		# ifsc = body['ifsc']
 		obj = Bank.objects.get(ifsc=ifsc)
-		serializer = BankSerializer(obj)
-		pagination_class = LimitOffsetPagination
+
+		paginator = LimitOffsetPagination()
+		result_page = paginator.paginate_queryset(obj, request)
+		serializer = BankSerializer(result_page, many=True)
 		return JsonResponse(serializer.data)
 
 
