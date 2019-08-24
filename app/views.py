@@ -77,7 +77,7 @@ class branch_list(APIView):
 			city=city
 		)
 		page = self.paginate_queryset(obj)
-		if page in not None:
+		if page is not None:
 			serializer = BankSerializer(page, many=True)
 			return self.get_paginated_response(serializer.data)
 
