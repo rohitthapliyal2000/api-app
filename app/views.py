@@ -76,16 +76,20 @@ class branch_list(APIView):
 			bank_name=bank_name,
 			city=city
 		)
-	    # page = paginator.paginate_queryset(obj, request)
+	    page = self.paginate_queryset(obj)
+	    if page in not None:
+	    	serializer = BankSerializer(page, many=True)
+	    	return self.get_paginated_response(serializer.data)
+
+	    serializer = BankSerializer(obj, many=True)
+	    return JsonResponse(serializer.data, safe=False)
 
 	    # serializer = BankSerializer(page, many=True)
 
 	    # return paginator.get_paginated_response(serializer.data)
 
 
-		
-		
 		serializer = BankSerializer(obj, many=True)
-		# pagination_class = LimitOffsetPagination
-		pagination_class = DEFAULT_PAGINATION_CLASS
+		pagination_class = LimitOffsetPagination
+		# pagination_class = DEFAULT_PAGINATION_CLASS
 		return JsonResponse(serializer.data, safe=False)
