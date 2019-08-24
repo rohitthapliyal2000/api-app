@@ -72,8 +72,7 @@ class branch_list(APIView):
 
 		bank_name = bank_name.replace("%20", " ")
 		# pagination_class = api_settings.DEFAULT_PAGINATION_CLASS
-	 #    paginator = pagination_class()
-	    obj = Bank.objects.filter(
+		obj = Bank.objects.filter(
 			bank_name=bank_name,
 			city=city
 		)
