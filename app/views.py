@@ -53,14 +53,6 @@ class bank_list(APIView):
 	
 	def get(self, request, ifsc):
 		obj = Bank.objects.get(ifsc=ifsc)
-
-		paginator = LimitOffsetPagination()
-		result_page = paginator.paginate_queryset(obj, request)
-
-		if result_page is not None:
-			serializer = BankSerializer(result_page)
-			return JsonResponse(serializer.data)
-
 		serializer = BankSerializer(obj)
 		return JsonResponse(serializer.data)
 
