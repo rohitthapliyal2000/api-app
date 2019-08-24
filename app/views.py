@@ -52,15 +52,17 @@ class bank_list(APIView):
 	permission_classes = (IsAuthenticated,)
 	
 	def get(self, request, ifsc):
-		# body_unicode = request.body.decode("utf-8")
-		# body = json.loads(body_unicode)
-		# ifsc = body['ifsc']
 		obj = Bank.objects.get(ifsc=ifsc)
 
 		paginator = LimitOffsetPagination()
 		result_page = paginator.paginate_queryset(obj, request)
-		serializer = BankSerializer(result_page, many=True)
-		return JsonResponse(serializer.data)
+
+		if result_page is not None:
+			serializer = BankSerializer(result_page, many=True)
+			return JsonResponse(serializer.data, safe=False)
+
+		serializer = BankSerializer(obj, many=True)
+		return JsonResponse(serializer.data, safe=False)
 
 
 class branch_list(APIView):
@@ -76,5 +78,9 @@ class branch_list(APIView):
 		paginator = LimitOffsetPagination()
 		result_page = paginator.paginate_queryset(obj, request)
 
-		serializer = BankSerializer(result_page, many=True)
+		if result_page is not None:
+			serializer = BankSerializer(result_page, many=True)
+			return JsonResponse(serializer.data, safe=False)
+
+		serializer = BankSerializer(obj, many=True)
 		return JsonResponse(serializer.data, safe=False)
