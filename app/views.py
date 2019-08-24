@@ -69,11 +69,23 @@ class branch_list(APIView):
 		# body = json.loads(body_unicode)
 		# bank_name = body['bank_name']
 		# city = body['city']
+
 		bank_name = bank_name.replace("%20", " ")
-		obj = Bank.objects.filter(
+		pagination_class = api_settings.DEFAULT_PAGINATION_CLASS
+	    paginator = pagination_class()
+	    obj = Bank.objects.filter(
 			bank_name=bank_name,
 			city=city
 		)
-		serializer = BankSerializer(obj, many=True)
-		pagination_class = LimitOffsetPagination
-		return JsonResponse(serializer.data, safe=False)
+	    page = paginator.paginate_queryset(obj, request)
+
+	    serializer = BankSerializer(page, many=True)
+
+	    return paginator.get_paginated_response(serializer.data)
+
+
+		
+		
+		# serializer = BankSerializer(obj, many=True)
+		# pagination_class = LimitOffsetPagination
+		# return JsonResponse(serializer.data, safe=False)
