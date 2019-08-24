@@ -49,7 +49,7 @@ def feed_data(request):
 
 class bank_list(APIView):
 	permission_classes = (IsAuthenticated,)
-
+	pagination_class = LimitOffsetPagination
 	def get(self, request, ifsc):
 		# body_unicode = request.body.decode("utf-8")
 		# body = json.loads(body_unicode)
@@ -61,7 +61,7 @@ class bank_list(APIView):
 
 class branch_list(APIView):
 	permission_classes = (IsAuthenticated,)
-
+	pagination_class = LimitOffsetPagination
 	def get(self, request, bank_name, city):
 		# body_unicode = request.body.decode("utf-8")
 		# body = json.loads(body_unicode)
