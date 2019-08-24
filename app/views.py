@@ -67,6 +67,7 @@ class branch_list(APIView):
 		# body = json.loads(body_unicode)
 		# bank_name = body['bank_name']
 		# city = body['city']
+		bank_name = bank_name.replace("%20", " ")
 		obj = Bank.objects.filter(
 			bank_name=bank_name,
 			city=city
