@@ -1,52 +1,47 @@
-echo "\n\n"
-
 curl -X POST \
   https://bank-api-fyle-app.herokuapp.com/api/token/ \
+  -H 'Accept: */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Length: 46' \
   -H 'Content-Type: application/json' \
+  -H 'Cookie: csrftoken=baf7Gr0KhZ3fworUJn5nIpKYeIa6AIUkhLLZE0Gs70ME4OeQygdJXBWjghzVNBEt' \
   -H 'Host: bank-api-fyle-app.herokuapp.com' \
-  -H 'Postman-Token: 1eb98ecd-3bf7-4914-91c3-60a82ab9a60f,0a728932-1b06-4fed-bfa4-5eeeb97fd2a8' \
-  -H 'User-Agent: PostmanRuntime/7.15.2' \
+  -H 'Postman-Token: 64230e41-1b62-489f-9f0d-12227281846a,f25d20e0-703c-460c-a5c1-3b5b6b6e8219' \
+  -H 'User-Agent: PostmanRuntime/7.16.3' \
   -H 'cache-control: no-cache' \
   -d '{
-  "username": "rohit",
-  "password": "rohit"
+	"username": "rohit",
+	"password": "rohit"
 }'
 
 echo "\n\n\n\n"
 
 curl -X GET \
-  https://bank-api-fyle-app.herokuapp.com/api/bank/ \
+  https://bank-api-fyle-app.herokuapp.com/api/bank/ABHY0065001/ \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
-  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTY1NTIwMTUwLCJqdGkiOiI2NjIwNmE0ZmIwYTU0ZTFjYWVlYmRiMzQ4OTFkMGExNCIsInVzZXJfaWQiOjF9.wrMndHWCpGADOIbtm6nfT2IarWTk13Wn6PEsEG8Zd20' \
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTY3MDYzNDY5LCJqdGkiOiI2YmVkNWVmMDM3Yjg0MmVhYjQwODMyOTAwYWI2OGI0YyIsInVzZXJfaWQiOjF9.okMQgl5p0HP0uJFfTtL-IctC2-NjQ0fQI0zCp4HzUfc' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
-  -H 'Content-Length: 29' \
-  -H 'Content-Type: text/plain' \
+  -H 'Cookie: csrftoken=baf7Gr0KhZ3fworUJn5nIpKYeIa6AIUkhLLZE0Gs70ME4OeQygdJXBWjghzVNBEt' \
   -H 'Host: bank-api-fyle-app.herokuapp.com' \
-  -H 'Postman-Token: 7818ffba-46a1-4bdb-8e8d-0822a6f15125,0d7500f5-910c-4470-97d2-65b1e0c6fe0e' \
-  -H 'User-Agent: PostmanRuntime/7.15.2' \
-  -H 'cache-control: no-cache' \
-  -d '{
-    "ifsc": "ABHY0065001"
-}'
+  -H 'Postman-Token: 40a6f8af-9cff-41d8-8da6-19b3703a8f09,575c33da-d2fb-4a61-b030-0a602aacc496' \
+  -H 'User-Agent: PostmanRuntime/7.16.3' \
+  -H 'cache-control: no-cache'
 
 echo "\n\n\n\n"
 
 curl -X GET \
-  https://bank-api-fyle-app.herokuapp.com/api/branch/ \
+  'https://bank-api-fyle-app.herokuapp.com/api/branch/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/MUMBAI/?limit=3' \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
-  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTY1NTIwMTUwLCJqdGkiOiI2NjIwNmE0ZmIwYTU0ZTFjYWVlYmRiMzQ4OTFkMGExNCIsInVzZXJfaWQiOjF9.wrMndHWCpGADOIbtm6nfT2IarWTk13Wn6PEsEG8Zd20' \
+  -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTY3MDYzNDY5LCJqdGkiOiI2YmVkNWVmMDM3Yjg0MmVhYjQwODMyOTAwYWI2OGI0YyIsInVzZXJfaWQiOjF9.okMQgl5p0HP0uJFfTtL-IctC2-NjQ0fQI0zCp4HzUfc' \
   -H 'Cache-Control: no-cache' \
   -H 'Connection: keep-alive' \
-  -H 'Content-Length: 79' \
-  -H 'Content-Type: application/json' \
+  -H 'Cookie: csrftoken=baf7Gr0KhZ3fworUJn5nIpKYeIa6AIUkhLLZE0Gs70ME4OeQygdJXBWjghzVNBEt' \
   -H 'Host: bank-api-fyle-app.herokuapp.com' \
-  -H 'Postman-Token: 478102e6-ddde-455f-a1ea-f579df9283bd,a2352c88-4772-4575-80e0-9ab6fbd9647b' \
-  -H 'User-Agent: PostmanRuntime/7.15.2' \
-  -H 'cache-control: no-cache' \
-  -d '{
-    "city": "MUMBAI",
-    "bank_name": "ABHYUDAYA COOPERATIVE BANK LIMITED"
-}'
+  -H 'Postman-Token: adf5ef5f-019d-4c3a-b428-792d406f1f4f,c1487dac-be7e-4d47-83f0-68c49d01bede' \
+  -H 'User-Agent: PostmanRuntime/7.16.3' \
+  -H 'cache-control: no-cache'
