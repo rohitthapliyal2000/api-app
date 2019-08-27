@@ -1,4 +1,4 @@
-curl -X POST \
+curl -k -X POST \
   https://bank-api-fyle-app.herokuapp.com/api/token/ \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
@@ -18,7 +18,7 @@ curl -X POST \
 
 echo "\n\n\n\n"
 
-curl -X GET \
+curl -k -X GET \
   https://bank-api-fyle-app.herokuapp.com/api/bank/ABHY0065001/ \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
@@ -33,7 +33,7 @@ curl -X GET \
 
 echo "\n\n\n\n"
 
-curl -X GET \
+curl -k -X GET \
   'https://bank-api-fyle-app.herokuapp.com/api/branch/ABHYUDAYA%20COOPERATIVE%20BANK%20LIMITED/MUMBAI/?limit=3' \
   -H 'Accept: */*' \
   -H 'Accept-Encoding: gzip, deflate' \
